@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FaceXamarin"
+             x:Class="FaceXamarin.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="BackgroundColor" Value="Purple"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style x:Key="ResultLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFF"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="D2Coding"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" 
+                 BackgroundColor="Black">
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="Small"/>
+                    <Setter Property="TextColor" Value="White"/>
+                </Style>
+            </ResourceDictionary>
+        </StackLayout.Resources>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Gallery" 
+                    Clicked="Button_OnClicked"/>
+
+            <Button Text="Camera" Grid.Column="1"/>
+
+        </Grid>
+
+        <AbsoluteLayout x:Name="AbsoluteLayout" 
+                        BackgroundColor="#FFC5C5C5" 
+                        VerticalOptions="FillAndExpand"
+                        Margin="4">
+
+            <Label Text="Get your photo!"
+                   TextColor="#FF68217A"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                   AbsoluteLayout.LayoutFlags="All"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+            
+            <Image x:Name="Image" 
+                   AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                   AbsoluteLayout.LayoutFlags="All"/>
+
+        </AbsoluteLayout>
+
+        <Label x:Name="Result" 
+               Style="{StaticResource ResultLabelStyle}"
+               Margin="5,0,0,0"
+               Text="result~" FontFamily="D2Coding"/>
+    </StackLayout>
+</ContentPage>
